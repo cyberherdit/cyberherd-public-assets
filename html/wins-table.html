@@ -144,7 +144,7 @@ details[open] summary::before {
     document.addEventListener("toggle", (e) => {
       const el = e.target;
       if (el && el.tagName === "DETAILS") {
-        if (el.) {
+        if (el.open) {
           sendActualHeight();
         } else {
           postHeight(COLLAPSED_HEIGHT);
