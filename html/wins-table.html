@@ -16,17 +16,40 @@
     details {
       background: #ffffff;
       padding: 10px 12px;
+      color: #006747;
       margin: 12px 0;
     }
 
     summary {
-      cursor: pointer;
-      font-weight: 700;
-    }
+  cursor: pointer;
+  font-weight: 700;
+  list-style: none;
+  position: relative;
+  padding-left: 20px; /* space for icon */
+}
 
-    summary::-webkit-details-marker { display: none; }
-    summary::before { content: "▸ "; }
-    details[open] summary::before { content: "▾ "; }
+summary::-webkit-details-marker {
+  display: none;
+}
+
+/* CLOSED (plus) */
+summary::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 12px;
+  height: 12px;
+  transform: translateY(-50%);
+  background: url("https://www.usf.edu/_resources/images/v3/global/png/plus.png") no-repeat center center;
+  background-size: contain;
+}
+
+/* OPEN (minus) */
+details[open] summary::before {
+  background: url("https://www.usf.edu/_resources/images/v3/global/png/minus.png") no-repeat center center;
+  background-size: contain;
+}
 
     table {
       width: 100%;
