@@ -90,7 +90,7 @@ details[open] summary::before {
       setTimeout(sendHeight, 250);
     });
 
-    // <details> open/close
+    // <details> /close
     document.addEventListener("toggle", () => {
       requestAnimationFrame(() => requestAnimationFrame(sendHeight));
     }, true);
@@ -140,11 +140,11 @@ details[open] summary::before {
 
     // When any <details> toggles:
     // - if it CLOSED, force iframe back to 250
-    // - if it OPENED, grow to content
+    // - if it ED, grow to content
     document.addEventListener("toggle", (e) => {
       const el = e.target;
       if (el && el.tagName === "DETAILS") {
-        if (el.open) {
+        if (el.) {
           sendActualHeight();
         } else {
           postHeight(COLLAPSED_HEIGHT);
