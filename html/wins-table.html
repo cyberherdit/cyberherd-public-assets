@@ -3,9 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Results Table</title>
-   <style>
-    /* Hard override: white background, black text */
+  <title>Competitions</title>
+  <style>
     html, body {
       background: #ffffff;
       color: #000000;
@@ -25,117 +24,33 @@
     summary {
       cursor: pointer;
       font-weight: 700;
-      color: #000000;
     }
 
-    summary::-webkit-details-marker {
-      display: none;
-    }
-
-    summary::before {
-      content: "▸ ";
-      display: inline-block;
-    }
-
-    details[open] summary::before {
-      content: "▾ ";
-    }
+    summary::-webkit-details-marker { display: none; }
+    summary::before { content: "▸ "; }
+    details[open] summary::before { content: "▾ "; }
 
     table {
       width: 100%;
       border-collapse: collapse;
       margin-top: 10px;
-      background: #ffffff;
     }
 
     th, td {
       border-bottom: 1px solid #000000;
       padding: 10px 8px;
       text-align: left;
-      color: #000000;
-    }
-
-    th {
-      font-weight: 700;
-    }
-
-    tr:hover td {
-      background: #f2f2f2;
-    }
-
-    .muted {
-      font-size: 0.95rem;
-      margin-left: 6px;
-      color: #000000;
-      opacity: 0.7;
     }
   </style>
 </head>
 <body>
-
-  <details open>
-    <summary>2025 <span class="muted">— click to collapse/expand</span></summary>
-    <table aria-label="2025 results">
-      <thead>
-        <tr>
-          <th>Date</th>
-          <th>Event</th>
-          <th>1st</th>
-          <th>2nd</th>
-          <th>3rd</th>
-          <th>Notes</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>2025-01-12</td>
-          <td>Example Event A</td>
-          <td>15</td>
-          <td>7</td>
-          <td>4</td>
-          <td>Replace with real data</td>
-        </tr>
-        <tr>
-          <td>2025-03-03</td>
-          <td>Example Event B</td>
-          <td>8</td>
-          <td>5</td>
-          <td>2</td>
-          <td></td>
-        </tr>
-      </tbody>
-    </table>
-  </details>
-
-  <details>
-    <summary>2024 <span class="muted">— click to collapse/expand</span></summary>
-    <table aria-label="2024 results">
-      <thead>
-        <tr>
-          <th>Date</th>
-          <th>Event</th>
-          <th>1st</th>
-          <th>2nd</th>
-          <th>3rd</th>
-          <th>Notes</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>2024-10-20</td>
-          <td>Example Event C</td>
-          <td>11</td>
-          <td>6</td>
-          <td>3</td>
-          <td></td>
-        </tr>
-      </tbody>
-    </table>
-  </details>
-
+<details open>
+  <summary>2026<span class="muted">— click to collapse/expand</span></summary>
+  <table><thead><tr><th>Date</th><th>Competition</th><th>Location</th><th>Placement</th><th>Status</th><th>Description</th></tr></thead><tbody><tr><td class="empty" colspan="6">No entries.</td></tr></tbody></table>
+</details>
+<details>
+  <summary>2025<span class="muted">— click to collapse/expand</span></summary>
+  <table><thead><tr><th>Date</th><th>Competition</th><th>Location</th><th>Placement</th><th>Status</th><th>Description</th></tr></thead><tbody><tr><td>2025-01-17</td><td>Collegiate Penetration Testing Competition Globals 2025</td><td>Rochester, NY</td><td>4th Place</td><td>Completed</td><td></td></tr><tr><td>2025-01-17</td><td>Social Engineering Critical Infrastructure and AI Challenge</td><td>Virtual</td><td>1st Place</td><td>Completed</td><td></td></tr><tr><td>2025-03-21</td><td>Southeast Collegiate Cyber Defense Competition (SECCDC) Regionals 2025</td><td>University of South Florida</td><td>3rd Place</td><td>Completed</td><td></td></tr><tr><td>2025-05-13</td><td>Radio Frequency CTF @ Hack Space Con 2025</td><td>Kennedy Space Center, FL</td><td>2nd Place, 3rd Place</td><td>Completed</td><td></td></tr><tr><td>2025-05-13</td><td>Red Team CTF @ Hack Space Con 2025</td><td>Kennedy Space Center, FL</td><td>1st Place</td><td>Completed</td><td></td></tr><tr><td>2025-05-17</td><td>BSides Tampa 2025 - Hack The Box CTF</td><td>Tampa, FL</td><td>1st Place</td><td>Completed</td><td></td></tr><tr><td>2025-08-08</td><td>DEF CON 33 - Adversary Village CTF</td><td>Las Vegas, NV</td><td>1st Place</td><td>Completed</td><td></td></tr><tr><td>2025-10-18T07:00:00.000-04:00</td><td>Raymond James CTF 2025</td><td>St. Petersburg, FL</td><td>2nd Place</td><td>Completed</td><td></td></tr></tbody></table>
+</details>
 </body>
 </html>
-
-
-
-
