@@ -43,6 +43,46 @@
     }
   </style>
 </head>
+<script>
+  (function () {
+    function getHeight() {
+      const de = document.documentElement;
+      const b = document.body;
+      return Math.max(
+        de.scrollHeight, b ? b.scrollHeight : 0,
+        de.offsetHeight, b ? b.offsetHeight : 0
+      );
+    }
+
+    function sendHeight() {
+      const h = getHeight();
+      window.parent.postMessage(
+        { type: "iframe-height", height: h },
+        "*"
+      );
+    }
+
+    // Initial + after everything settles
+    window.addEventListener("load", () => {
+      sendHeight();
+      setTimeout(sendHeight, 50);
+      setTimeout(sendHeight, 250);
+    });
+
+    // <details> open/close
+    document.addEventListener("toggle", () => {
+      requestAnimationFrame(() => requestAnimationFrame(sendHeight));
+    }, true);
+
+    // Any other layout changes (fonts, wrapping, etc.)
+    if ("ResizeObserver" in window) {
+      const ro = new ResizeObserver(() => sendHeight());
+      ro.observe(document.documentElement);
+    } else {
+      window.addEventListener("resize", sendHeight);
+    }
+  })();
+</script>
 <body>
 <details open>
   <summary>2026<span class="muted">— click to collapse/expand</span></summary>
