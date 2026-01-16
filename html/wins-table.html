@@ -92,15 +92,46 @@
 </details>
 </body>
 <script>
-  function sendHeight() {
-    const h = document.documentElement.scrollHeight;
-    window.parent.postMessage({ type: "iframe-height", height: h }, "*");
-  }
+  (function () {
+    const COLLAPSED_HEIGHT = 250;
 
-  window.addEventListener("load", sendHeight);
-  window.addEventListener("resize", sendHeight);
+    function postHeight(h) {
+      window.parent.postMessage({ type: "iframe-height", height: h }, "*");
+    }
 
-  // Expand/collapse <details> affects height
-  document.addEventListener("toggle", sendHeight, true);
+    function sendActualHeight() {
+      // wait for layout to settle (important for <details>)
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          const h = document.documentElement.scrollHeight;
+          postHeight(h);
+        });
+      });
+    }
+
+    window.addEventListener("load", () => {
+      sendActualHeight();
+      setTimeout(sendActualHeight, 50);
+      setTimeout(sendActualHeight, 250);
+    });
+
+    // When any <details> toggles:
+    // - if it CLOSED, force iframe back to 250
+    // - if it OPENED, grow to content
+    document.addEventListener("toggle", (e) => {
+      const el = e.target;
+      if (el && el.tagName === "DETAILS") {
+        if (el.open) {
+          sendActualHeight();
+        } else {
+          postHeight(COLLAPSED_HEIGHT);
+        }
+      } else {
+        sendActualHeight();
+      }
+    }, true);
+  })();
 </script>
+
+
 </html>
