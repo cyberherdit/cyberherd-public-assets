@@ -33,21 +33,24 @@ summary::-webkit-details-marker {
 /* CLOSED (plus) */
 summary::before {
   content: "";
+  display: inline-block;         /* <-- important */
   position: absolute;
   left: 0;
   top: 50%;
   width: 12px;
   height: 12px;
   transform: translateY(-50%);
-  background: url("https://www.usf.edu/_resources/images/v3/global/png/plus.png") no-repeat center center;
-  background-size: contain;
+  background-image: url("https://www.usf.edu/_resources/images/v3/global/png/plus.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 12px 12px;    /* <-- explicit size */
 }
 
 /* OPEN (minus) */
 details[open] summary::before {
-  background: url("https://www.usf.edu/_resources/images/v3/global/png/minus.png") no-repeat center center;
-  background-size: contain;
+  background-image: url("https://www.usf.edu/_resources/images/v3/global/png/minus.png");
 }
+
 
     table {
       background: #ffffff;
