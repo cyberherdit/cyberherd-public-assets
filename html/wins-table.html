@@ -117,48 +117,55 @@ details[open] summary::before {
   <summary>2024<span class="muted">— click to collapse/expand</span></summary>
   <table><thead><tr><th>Date</th><th>Competition</th><th>Location</th><th>Placement</th><th>Description</th></tr></thead><tbody><tr><td>Feb 01</td><td>Saint Leo CTF Spring 2024</td><td>Saint Leo University, FL</td><td>1st Place</td><td>USF CyberHerd secured 1st place at the Saint Leo CTF Spring 2024, outperforming competitors in reverse engineering, web exploitation, cryptography, and digital forensics.</td></tr><tr><td>Feb 10</td><td>SECCDC Qualifiers 2024</td><td>Virtual</td><td>3rd Place</td><td>The SECCDC 2024 Qualifier Tournament challenged teams to defend simulated enterprise networks against real-world cyber threats, where USF CyberHerd earned 3rd place for their outstanding defensive performance.</td></tr><tr><td>Feb 24</td><td>NCAE Cyber Games Southeast Regional 2024</td><td>Virtual</td><td>1st Place</td><td>USF CyberHerd secured 1st place at the invitation-only NCAE Cyber Games Southeast Regional, leading in Capture the Flag, Service, and Injects—the only team to score in the Injects category.</td></tr><tr><td>Mar 11</td><td><a href="https://cyberflorida.org/2024-vivid-cybersecurity-competition/">VIVID Qualifiers 2024</a></td><td>Virtual</td><td>1st Place</td><td>USF CyberHerd tied for 1st place at the 2024 VIVID Qualifiers, excelling in a king-of-the-hill style competition featuring advanced networking and malware analysis challenges.</td></tr><tr><td>Mar 23</td><td>Southeast Collegiate Cyber Defense Competition (SECCDC) Regionals 2024</td><td>Kennedy Space Center, FL</td><td>2nd Place</td><td>USF CyberHerd secured 2nd place at the SECCDC 2024 Regional Tournament, showcasing exceptional skills in defending simulated enterprise networks against real-world cyber threats.</td></tr><tr><td>Apr 10</td><td><a href="https://www.hackspacecon.com/">RF CTF @ Hack Space Con 2024</a></td><td>Kennedy Space Center, FL</td><td>1st Place</td><td>USF CyberHerd claimed 1st place at the 2024 RF CTF during Hack Space Con, demonstrating exceptional proficiency in radio frequency exploitation and signal analysis.</td></tr><tr><td>Apr 10</td><td><a href="https://www.hackspacecon.com/">Azure CTF @ Hack Space Con 2024</a></td><td>Kennedy Space Center, FL</td><td>1st Place</td><td>USF CyberHerd took 1st place at the 2024 Azure CTF during Hack Space Con, dominating challenges focused on Azure cloud environments and advanced networking skills.</td></tr><tr><td>May 01</td><td>Department of Defense Cyber Sentinel Skills Challenge 2024</td><td>Virtual</td><td>1st Place</td><td>USF CyberHerd secured 1st place in the DoD Cyber Sentinel Skills Challenge, outperforming nearly 3,000 competitors—including industry veterans and students—in an intense 8-hour CTF testing forensics, web security, reverse engineering, reconnaissance, and malware analysis.</td></tr><tr><td>Aug 09</td><td><a href="https://adversaryvillage.org/adversary-wars-ctf/adversary-wars-4.0/ ">DEF CON 32 - Adversary Village CTF</a></td><td>Las Vegas, NV</td><td>2nd Place</td><td>USF CyberHerd claimed 2nd place at DEF CON 32’s Adversary Wars CTF, demonstrating advanced skills in one of the world’s premier hacking competitions.</td></tr><tr><td>Sep 18</td><td><a href="https://www.a-isac.com/">A-ISAC 2024</a></td><td>New Orleans, Louisiana</td><td>2nd Place, 3rd Place</td><td>USF CyberHerd earned 2nd and 3rd place at A-ISAC 2024, an aviation-focused cybersecurity competition that provided hands-on experience solving real-world threats in the industry.</td></tr><tr><td>Oct 05</td><td>Raymond James CTF 2024</td><td>St. Petersburg, FL</td><td>1st Place</td><td>USF CyberHerd secured 1st place at the Raymond James CTF, excelling in reverse engineering, web security, malware analysis, and forensics challenges.</td></tr><tr><td>Oct 19</td><td>Central Florida TechGrove CTF 2024</td><td>UCF</td><td>1st Place</td><td>USF CyberHerd captured 1st place at the 2024 Central Florida TechGrove CTF, showcasing top-tier expertise in networking, web exploitation, and digital forensics.</td></tr><tr><td>Oct 21</td><td>Cyber Resiliency and Measurement Challenge (CRAM)</td><td>Dahlgren, VA</td><td>2nd Place</td><td>USF CyberHerd earned 2nd place and a $40K prize in the national Cyber Resiliency and Measurement Challenge, developing the Holistic Exploit and Risk Discovery (HERD) tool—an AI-driven system for analyzing organizational threats across hardware, software, physical, and personnel risks—in a hackathon-style competition.</td></tr><tr><td>Oct 30</td><td>SHPE Cybersecurity Challenge 2024</td><td>Anaheim, CA</td><td>1st Place</td><td>USF CyberHerd took 1st place at the SHPE Cybersecurity Challenge, held at a leading industry conference, demonstrating exceptional competitive skills.</td></tr><tr><td>Nov 09</td><td>Department of Energy CyberForce Competition 2024</td><td>Chicago, IL</td><td>5th Place</td><td>USF CyberHerd placed 5th out of over 100 teams at CyberForce 2024, demonstrating strong blue team capabilities and delivering executive-level presentations to industry judges.</td></tr><tr><td>Nov 13</td><td>VIVID Finals 2024</td><td>Augusta, GA</td><td>1st Place</td><td>USF CyberHerd took 1st place at the 2024 VIVID Finals, dominating a national king-of-the-hill style CTF against top universities from across the country.</td></tr><tr><td>Nov 14</td><td>EC-Council CTF 2025</td><td>Tampa, FL</td><td>1st Place</td><td>USF CyberHerd secured 1st place in the EC-Council CTF, outperforming 20 teams in challenges focused on Linux pentesting, privilege escalation, and reverse engineering.</td></tr><tr><td>Nov 15</td><td>Southeast Collegiate Penetration Testing Competition (SECPTC) 2024</td><td>Augusta, GA</td><td>2nd Place</td><td>USF CyberHerd claimed 2nd place at the 2024 SECPTC Regionals, outperforming teams across the Southeast in a comprehensive penetration testing challenge involving Active Directory, network configuration, client communication, and professional reporting.</td></tr></tbody></table>
 </details>
-</body>
 <script>
   (function () {
-    const COLLAPSED_HEIGHT = 250;
+    const MIN_HEIGHT = 250;
 
     function postHeight(h) {
       window.parent.postMessage({ type: "iframe-height", height: h }, "*");
     }
 
-    function sendActualHeight() {
-      // wait for layout to settle (important for <details>)
+    function contentHeight() {
+      const de = document.documentElement;
+      const b = document.body;
+      return Math.max(
+        de.scrollHeight, b ? b.scrollHeight : 0,
+        de.offsetHeight, b ? b.offsetHeight : 0
+      );
+    }
+
+    function anyDetailsOpen() {
+      return document.querySelector("details[open]") !== null;
+    }
+
+    function sendHeight() {
+      // If everything is collapsed, force the compact height.
+      // Otherwise, grow to content.
+      const h = anyDetailsOpen() ? contentHeight() : MIN_HEIGHT;
+
+      // Wait for <details> layout to settle
       requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          const h = document.documentElement.scrollHeight;
-          postHeight(h);
-        });
+        requestAnimationFrame(() => postHeight(h));
       });
     }
 
     window.addEventListener("load", () => {
-      sendActualHeight();
-      setTimeout(sendActualHeight, 50);
-      setTimeout(sendActualHeight, 250);
+      sendHeight();
+      setTimeout(sendHeight, 50);
+      setTimeout(sendHeight, 250);
     });
 
-    // When any <details> toggles:
-    // - if it CLOSED, force iframe back to 250
-    // - if it ED, grow to content
-    document.addEventListener("toggle", (e) => {
-      const el = e.target;
-      if (el && el.tagName === "DETAILS") {
-        if (el.open) {
-          sendActualHeight();
-        } else {
-          postHeight(COLLAPSED_HEIGHT);
-        }
-      } else {
-        sendActualHeight();
-      }
-    }, true);
+    // <details> open/close
+    document.addEventListener("toggle", sendHeight, true);
+
+    // Any other layout changes (fonts, wrapping, etc.)
+    if ("ResizeObserver" in window) {
+      const ro = new ResizeObserver(() => sendHeight());
+      ro.observe(document.documentElement);
+    } else {
+      window.addEventListener("resize", sendHeight);
+    }
   })();
 </script>
-
-
+</body>
 </html>
